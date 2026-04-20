@@ -60,13 +60,87 @@
         //     return res;
         // }
 
-        let sum = function(a,b){
-            return a+b;
+        // let sum = function(a,b){
+        //     return a+b;
+        // }
+
+        // function greet(func,n){
+        //     for(let i=0;i<n;i++){
+        //         func();
+        //     }
+        // }
+
+        // let hello = function(){
+        //     console.log("Hello");
+        // }
+
+        // greet(hello,999);
+
+        // let odd = function(n){
+        //     console.log(n%2 != 0);
+        // }
+
+        // let even = function(n){
+        //     console.log(n%2 == 0);
+        // }
+
+        // function check(request){
+        //     if(request == "odd"){
+        //         let odd = function(n){
+        //             console.log(!(n%2 == 0));
+        //         }
+        //         return odd;
+        //     }
+        //     else if(request == "even"){
+        //         let even = function(n){
+        //             console.log(n%2 == 0);
+        //         }
+        //         return even;
+        //     }
+        //     else{
+        //         console.log("wrong request");
+        //     }
+        // }
+        // let request = "odd";
+
+        // const calculator = {
+        //     num:77,
+        //     add : function(a,b){
+        //         return a+b;
+        //     },
+        //     sub : function(a,b){
+        //         return a-b;
+        //     },
+        //     mul : function(a,b){
+        //         return a*b;
+        //     },
+        //     div : function(a,b){
+        //         return a/b;
+        //     },
+        // }
+
+        // const calculator = {
+        //     add(a,b) {
+        //         return a+b;
+        //     },
+        //     sub(a,b){
+        //         return a-b;
+        //     }
+        // };
+
+        let str = "abcdabcdefgggh";
+
+        function unique(str){
+            let ans = "";
+            for(let i=0;i<str.length;i++){
+                if(ans.indexOf(str[i] == -1)){
+                    ans += str[i];
+                }
+            }
+            return ans;
         }
 
-
-
-
+        console.log(unique(str));
     </script>
 </body>
 </html>

@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CHAPTER-10 JS</title>
+    <style>
+        .box{
+            height: 100px;
+            width: 100px;
+            background-color: pink;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <!-- <button onclick="document.writeln('photo was liked')">Like this Photo</button>
+    <button>Share this Photo</button>
+    <button>Comment this Photo</button>
+    <button>Save this Photo</button>
+    <button>Report this Photo</button> -->
+
+    <!-- <p>This is a paragarph.</p>
+    <div class="box">BOX</div>-->
+
+    <!-- <input placeholder="move your character">
+    <button>Click Me</button> -->
+
+    <form action="/action">
+        <input placeholder="username" type="text" id="user"/>
+        <br><br>
+        <input placeholder="password" type="password" id="password"/><br><br>
+        <button>Register</button>
+    </form>
+
+    <!-- <h1>Use of this in Event Listners</h1>
+    <h3>Sample Examples</h3>
+    <p>This is a sample paragraph.</p> -->
+
+    <script>
+        // let btns = document.querySelectorAll("button");
+        // console.dir(btns);
+
+        // let b = document.querySelector("body");
+        
+        // for(btn of btns){
+            // btn.onclick = say; 
+
+            // btn.onmouseenter = function() {
+            //     console.log("You entered a button");
+            //     b.style.backgroundColor = "Pink";
+            //     btn.style.fontSize = "20px";
+            // };
+
+        //     btn.addEventListener("click",say);
+        //     btn.addEventListener("click",hay);
+        //     btn.addEventListener("dblclick",function (){
+        //         document.writeln("You Double Clicked");
+        //     });
+        // }
+
+        // function say() {
+        //     alert("Hello!");
+        // }
+        // function hay() {
+        //     alert("Hey!");
+        // }
+
+        // btn.onclick = say;
+
+        // btn.onclick = function(){
+        //     console.log("Button was clicked");
+        // }
+
+        // let p = document.querySelector("p");
+
+        // p.addEventListener("click",function(){
+        //     document.writeln("Paragarph is clicked");
+        // });
+
+        // let box = document.querySelector(".box");
+        // box.addEventListener("mouseenter",function(){
+        //     box.innerText = "Mouse inside div";
+        // });
+
+
+        // let bn = document.querySelector("button");
+        // let h1 = document.querySelector("h1");
+        // let h3 = document.querySelector("h3");
+        // let p = document.querySelector("p");
+
+        // function changeColor(){
+        //     console.log(this.innerText);
+        //     this.style.backgroundColor = "violet";
+        // }
+
+        // bn.addEventListener("click",changeColor);
+        // h1.addEventListener("click",changeColor);
+        // h3.addEventListener("click",changeColor);
+        // p.addEventListener("click",changeColor);
+
+        // KEYBOARD EVENTS : 
+        // let bn = document.querySelector("button");
+
+        // bn.addEventListener("click" ,function(event) {
+        //     console.log(event);
+        //     console.log("button clicked");
+        // });
+        // bn.addEventListener("dbclick" ,function(event) {
+        //     console.log(event);
+        //     console.log("button Double clicked");
+        // });
+        // let inp = document.querySelector("input");
+
+        // inp.addEventListener("keydown",function(event) {
+        //     console.log("Key : ",event.key);
+        //     console.log("Code : ",event.code);
+        //     console.log("Key was pressed");
+        // });
+        // inp.addEventListener("keyup",function() {
+        //     console.log("Key was released");
+        // });
+
+        // inp.addEventListener("keydown",function(){
+        //     console.log("code : ",event.code);
+        //     if(event.code == "KeyU"){
+        //         console.log("Character moves forward");
+        //     }else if(event.code == "KeyD"){
+        //         console.log("Character moves backwards");
+        //     }
+        //     else if(event.code == "KeyL"){
+        //         console.log("Character moves left");
+        //     }
+        //     else if(event.code == "KeyR"){
+        //         console.log("Character moves right");
+        //     }
+        // });
+
+
+        //FORM EVENTS : 
+
+        let form = document.querySelector("form");
+
+        form.addEventListener("submit" ,function(event){
+            event.preventDefault();
+            // console.dir(this.elements);
+            // console.log(form.elements);
+            // let user = this.elements[0];
+            // let pass = this.elements[1];
+
+            // console.log(user.value);
+            // console.log(pass.pass);
+
+            // alert(`Hi ${user.value}, your password is set to ${user.pass}.`);
+        });
+
+        // MORE EVENTS : 
+
+            let user = document.querySelector("#user");
+            
+            user.addEventListener("change",function(){
+                console.log("input changed");
+                console.log("final value = ",this.value);
+            });
+
+            user.addEventListener("input",function(){
+                console.log("input changed stepwise");
+                console.log("final value = ",this.value);
+            });
+    </script>
+</body>
+</html>

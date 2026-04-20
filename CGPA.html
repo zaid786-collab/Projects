@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CGPA Calculator</title>
+    <link rel="stylesheet" href="CGPA.css">
+</head>
+<body>
+
+<div id="main">
+    <h1>CGPA Calculator</h1>
+
+    <div id="subjects"></div>
+
+    <div class="btn-group">
+        <button onclick="addSubject()">+ Add Subject</button>
+        <button id="btn">Calculate</button>
+    </div>
+
+    <h2 id="cgpa"></h2>
+    <h3 id="percentage"></h3>
+</div>
+
+<script>
+
+    const subjectsDiv = document.getElementById("subjects");
+const btn = document.getElementById("btn");
+
+window.onload = () => {
+    const data = JSON.parse(localStorage.getItem("cgpaData"));
+
+    if (data && data.length > 0) {
+        data.forEach(s => addSubject(s.name, s.grade));
+    } else {
+        addSubject();
+    }
+};
+
+function addSubject(name = "", grade = "") {
+    const div = document.createElement("div");
+    div.classList.add("subject");
+
+    div.innerHTML = `
+        <input type="text" placeholder="Subject" value="${name}">
+        <input type="number" placeholder="Marks / GPA" value="${grade}">
+        <button onclick="removeSubject(this)">X</button>
+    `;
+
+    subjectsDiv.appendChild(div);
+}
+
+function removeSubject(btn){
+    btn.parentElement.remove();
+    saveData();
+}
+
+btn.onclick = function(){
+    let inputs = document.querySelectorAll(".subject input[type='number']");
+    let sum = 0;
+    let count = 0;
+
+    inputs.forEach(input => {
+        if(input.value !== ""){
+            sum += Number(input.value);
+            count++;
+        }
+    });
+
+    if(count === 0){
+        alert("Enter values!");
+        return;
+    }
+
+    let rawCgpa = sum / count;
+    let cgpa = Math.min(rawCgpa, 10).toFixed(2)
+    let percentage = (cgpa * 9.5).toFixed(2);
+
+    document.getElementById("cgpa").innerText = `CGPA: ${cgpa}`;
+    document.getElementById("percentage").innerText = `Percentage: ${percentage}%`;
+
+    saveData();
+};
+
+function saveData(){
+    let rows = document.querySelectorAll(".subject");
+    let data = [];
+
+    rows.forEach(row => {
+        let inputs = row.querySelectorAll("input");
+        data.push({
+            name: inputs[0].value,
+            grade: inputs[1].value
+        });
+    });
+
+    localStorage.setItem("cgpaData", JSON.stringify(data));
+}
+</script>
+</body>
+</html>

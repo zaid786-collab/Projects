@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="9.STYLE.css">
+</head>
+<body>
+    <div id="main">
+
+    <h1>CGPA Calculator</h1>
+
+    <div class="form-group">
+
+        <p><u><b>Theory Subjects :</b></u></p>
+
+        <label>• Mathematics</label>
+        <input type="number" class="marks" id="mathes">
+
+        <label>• Electronics</label>
+        <input type="number" class="marks" id="electronics">
+
+        <label>• Mechanical</label>
+        <input type="number" class="marks" id="mechanical">
+
+        <label>• Design Thinking</label>
+        <input type="number" class="marks" id="dt">
+
+        <label>• Soft Skills</label>
+        <input type="number" class="marks" id="ss">
+
+        <label>• Data Structures</label>
+        <input type="number" class="marks" id="dsa">
+
+        <p><u><b>Practical Subjects :</b></u></p>
+
+        <label>• Electronics Lab</label>
+        <input type="number" class="marks" id="electronicslab">
+
+        <label>• Mechanical Lab</label>
+        <input type="number" class="marks" id="mechanicallab">
+
+        <label>• Soft Skills Lab</label>
+        <input type="number" class="marks" id="ssl">
+
+        <label>• Data Structures Lab</label>
+        <input type="number" class="marks" id="dsal">
+
+        <label>• Web Designing Lab</label>
+        <input type="number" class="marks" id="wb">
+
+    </div>
+
+    <button id="btn">Calculate</button>
+
+    <h2 id="cgpa"></h2>
+    <h3 id="percentage"></h3>
+
+</div>
+
+<script>
+    const inputs = document.querySelectorAll(".marks");
+const btn = document.getElementById("btn");
+
+// Load saved data
+window.onload = () => {
+    const saved = JSON.parse(localStorage.getItem("cgpaData"));
+
+    if(saved){
+        inputs.forEach(input => {
+            if(saved[input.id]){
+                input.value = saved[input.id];
+            }
+        });
+    }
+};
+
+// Calculate
+btn.onclick = () => {
+    let sum = 0;
+    let count = 0;
+
+    inputs.forEach(input => {
+        let val = parseFloat(input.value);
+
+        if(!isNaN(val)){
+            sum += val;
+            count++;
+        }
+    });
+
+    if(count === 0){
+        alert("Enter marks!");
+        return;
+    }
+
+    let cgpa = (sum / count).toFixed(2);
+    let percentage = (cgpa * 9.5).toFixed(2);
+
+    document.getElementById("cgpa").innerText = `CGPA: ${cgpa}`;
+    document.getElementById("percentage").innerText = `Percentage: ${percentage}%`;
+
+    saveData();
+};
+
+
+function saveData(){
+    let data = {};
+
+    inputs.forEach(input => {
+        data[input.id] = input.value;
+    });
+
+    localStorage.setItem("cgpaData", JSON.stringify(data));
+}
+</script>
+</body>
+</html>

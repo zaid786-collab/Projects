@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>CBSE Result Replica</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="header">
+    <h2>Central Board of Secondary Education</h2>
+    <p>Secondary School Examination (Class X) 2026</p>
+  </div>
+
+  <div class="student-info">
+    <p><strong>Roll No:</strong> 21203895</p>
+    <p><strong>Candidate Name:</strong> ZAINA KHAN</p>
+    <p><strong>Mother's Name:</strong> NAZIA KHAN</p>
+    <p><strong>Father's Name:</strong> NAUSHAD KHAN</p>
+    <p><strong>Date of Birth:</strong> 02/09/2010</p>
+    <p><strong>School:</strong> GR Convent School, Ghaziabad</p>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>SUB CODE</th>
+        <th>SUB NAME</th>
+        <th>THEORY</th>
+        <th>I.A / PRACTICAL</th>
+        <th>TOTAL</th>
+      </tr>
+    </thead>
+    <tbody id="marksTable">
+        <tr>
+        <td>184</td>
+        <td>ENGLISH LNG & LIT</td>
+        <td><input type="number" value="077"></td>
+        <td>020</td>
+        <td class="total">097</td>
+      </tr>
+      <tr>
+        <td>085</td>
+        <td>HINDI COURSE-B</td>
+        <td><input type="number" value="071"></td>
+        <td>020</td>
+        <td class="total">091</td>
+      </tr>
+      <tr>
+        <td>041</td>
+        <td>MATHEMATICS STANDARD</td>
+        <td><input type="number" value="076"></td>
+        <td>020</td>
+        <td class="total">096</td>
+      </tr><tr>
+        <td>086</td>
+        <td>SCIENCE</td>
+        <td><input type="number" value="073"></td>
+        <td>020</td>
+        <td class="total">093</td>
+      </tr>
+      <tr>
+        <td>087</td>
+        <td>SOCIAL SCIENCE</td>
+        <td><input type="number" value="074"></td>
+        <td>020</td>
+        <td class="total">094</td>
+      </tr>
+      <tr><td colspan="5" class="additional">ADDITIONAL SUBJECT</td></tr>
+      <tr>
+        <td>402</td>
+        <td>INFORMATION TECHNOLOGY</td>
+        <td><input type="number" value="041"></td>
+        <td>050</td>
+        <td class="total">091</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <button onclick="updateTotals()">Update Totals</button>
+
+  <div class="result">Result: PASS</div>
+</div>
+
+<script src="script.js">
+    function updateTotals() {
+  let rows = document.querySelectorAll("#marksTable tr");
+
+  rows.forEach(row => {
+    let theory = row.querySelector("input").value;
+    let practical = row.children[3].innerText;
+
+    let total = parseInt(theory) + parseInt(practical);
+    row.querySelector(".total").innerText = total;
+  });
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Spider-Man</title>
+</head>
+<style>
+.color{
+  color:red;
+}
+.color1{
+  color:blue;
+}
+.pro{
+  border: 2px solid black;
+  background-color: pink;
+}
+/* body {
+  font-family: Arial;
+}
+.green{
+  color: green;
+  text-decoration: underline black wavy;
+}
+.underline{
+  text-decoration: underline;
+}
+
+#mainImg {
+  width: 35%;
+}
+
+.box {
+  border: 0.25px solid black;
+  background-color: lightgray;
+  width: 200px;
+  padding: 1rem;
+}
+
+.yellowbg{
+  background-color: yellow;
+}
+
+.boxLink {
+  text-decoration: none;
+}
+
+.oldImg {
+  height: 200px;
+  width: 200px;
+  margin-right: 1rem;
+}
+
+#description {
+  background-color: antiquewhite;
+} */
+  </style> 
+  <body>
+    <!-- <h1>Spider Man</h1>
+    <img src="spiderman_img.png" id="mainImg" class="abc xyz" />
+    <h2>About</h2>
+    <p>
+      <b>Spider-Man</b> is a superhero appearing in American comic books
+      published by
+      <a href="https://www.google.com/search?q=Marvel+Comics" >Marvel Comics</a>.
+      Created by writer-editor <b>Stan Lee</b> and artist <b>Steve Ditko</b>, he
+      first appeared in the anthology comic book
+      <a href="https://www.google.com/search?q=Amazing+Fantasy"
+        >Amazing Fantasy</a
+      >
+      #15 (August 1962) in the <a href="#">Silver Age of Comic Books</a>. He has
+      been featured in comic books, television shows, films, video games,
+      novels, and plays
+    </p>
+
+    <div class="box">
+      <h4>Publication Info</h4>
+      <ul>
+        <li><a href="#" class="boxLink">Publisher</a></li>
+        <li><a href="#" class="boxLink">First Appearance</a></li>
+        <li>
+          Created by
+          <ul>
+            <li><a href="#" class="boxLink">Stan Lee</a></li>
+            <li><a href="#" class="boxLink">Steve Ditko</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+    <h2>Creation & Development</h2>
+    <p id="description">
+      In 1962, with the success of the Fantastic Four, Marvel Comics editor and
+      head writer Stan Lee was casting for a new superhero idea. He said the
+      idea for Spider-Man arose from a surge in teenage demand for comic books
+      and the desire to create a character with whom teens could identify. As
+      with Fantastic Four, Lee saw Spider-Man as an opportunity to "get out of
+      his system" what he felt was missing in comic books. In his autobiography,
+      Lee cites the non-superhuman pulp magazine crime fighter the Spider as a
+      great influence, and in a multitude of print and video interviews, Lee
+      stated he was further inspired by seeing a spider climb up a wall—adding
+      in his autobiography that he has told that story so often he has become
+      unsure of whether or not this is true.
+    </p>
+    <div class="images">
+      <img src="creation_1.png" class="oldImg" />
+      <img src="creation_2.jpeg" class="oldImg" />
+      <img src="creation_3.jpeg" class="oldImg" />
+    </div> -->
+    <input type="text" placeholder="entervalue">
+
+    <script>
+        // let io = document.getElementById("mainImg");
+        // console.dir(io);
+        // console.log(io.src);
+        // io.src =  "creation_3.jpeg";
+
+        // let po = document.getElementById("description");
+        // console.dir(po);
+
+        // let ic = document.getElementsByClassName("oldImg");
+        // console.dir(ic);
+
+        // for(let i=0;i<ic.length;i++){
+        //     ic[i].src = "spiderman_img.png";
+        // }
+
+        // // console.dir(document.getElementsByTagName("p"));
+        // // document.getElementsByTagName("p")[1].innerText = "abc";
+
+        // console.dir(document.querySelector("h1"));
+
+        // console.dir(document.querySelectorAll("p"));
+
+        //let links = document.querySelectorAll(".box a");
+        // for(link of links){
+        //   link.style.color = "purple";
+        // }
+
+        // let para = document.createElement('p');
+        // console.dir(para);
+
+        // para.innerText = "Hi, I am a new p";
+        // console.dir(para);
+
+        // let body = document.querySelector('body');
+        // body.appendChild(para);
+
+        // let box = document.querySelector('.box');
+        // box.appendChild(para);
+        
+        // let btn = document.createElement('button');
+        // btn.innerText = "Submit";
+
+        // box.appendChild(btn);
+
+        // para.append(btn);
+        // para.append(" Do not click this btn");
+
+        // let p = document.querySelector('p');
+        // p.insertAdjacentElement('beforeend',btn);
+
+        // p.removeChild(btn);
+
+
+        let para = document.createElement('p');
+        para.innerText = "Hey I'm red!!";
+        document.querySelector('body').append(para);
+        para.classList.add('color');
+
+        let h3 = document.createElement('h3');
+        h3.innerText = "I'm a blue h3!!";
+        document.querySelector('body').append(h3);
+        h3.classList.add('color1');
+
+        let d = document.createElement('div');
+        document.querySelector('body').append(d);
+        d.classList.add('pro');
+        let h1 = document.createElement('h1');
+        h1.innerText = "I'm in a div";
+        document.querySelector('div').append(h1);
+        let p = document.createElement('p');
+        p.innerText = "ME TOO!";
+        document.querySelector('div').append(p);
+
+        let btn = document.createElement('button');
+        btn.innerText = "Click me";
+        document.querySelector('div').append(btn);
+
+        btn.setAttribute('id','btn');
+
+        let i = document.querySelector('input');
+        i.setAttribute('placeholder','username');
+
+        let b = document.querySelector('#btn');
+        b.style.backgroundColor = "blue";
+        b.style.color = "white";
+
+        let h = document.createElement('h1');
+        h.innerText = "DOM Practice";
+        document.querySelector('body').append(h);
+        h.style.color = "purple";
+        h.style.textDecoration = "underline";
+
+        let pa = document.createElement('p');
+        pa.innerHTML = "Apna College <b>Delta</b> Practice";
+        document.querySelector("body").append(pa);
+
+    </script>
+  </body>
+</html>
